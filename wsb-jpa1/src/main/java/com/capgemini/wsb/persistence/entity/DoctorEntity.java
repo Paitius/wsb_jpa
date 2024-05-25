@@ -2,14 +2,9 @@ package com.capgemini.wsb.persistence.entity;
 
 import com.capgemini.wsb.persistence.enums.Specialization;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
+
 
 @Entity
 @Table(name = "DOCTOR")
@@ -36,6 +31,13 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
+
+	@OneToMany(mappedBy = "doctorEntity", cascade = CascadeType.ALL) // Relacja dwukierunkowa, gdzie lekarz zna swoje wizyty, a wizyty mają przypisanego lekarza
+	private Collection<VisitEntity> visitEntities;
+
+	@ManyToOne(fetch = FetchType.LAZY) // Relacja jednokierunkowa z Doctor do Address, ponieważ adres nie musi znać informacji o lekarzach
+	@JoinColumn(name = "ADDRESS_ID")
+	private AddressEntity addressEntity;
 
 	public Long getId() {
 		return id;
@@ -93,4 +95,19 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+	public AddressEntity getAddressEntity() {
+		return addressEntity;
+	}
+
+	public void setAddressEntity(AddressEntity addressEntity) {
+		this.addressEntity = addressEntity;
+	}
+
+	public Collection<VisitEntity> getVisitEntities() {
+		return visitEntities;
+	}
+
+	public void setVisitEntities(Collection<VisitEntity> visitEntities) {
+		this.visitEntities = visitEntities;
+	}
 }

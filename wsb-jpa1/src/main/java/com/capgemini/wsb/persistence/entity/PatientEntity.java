@@ -1,13 +1,9 @@
 package com.capgemini.wsb.persistence.entity;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PATIENT")
@@ -32,7 +28,18 @@ public class PatientEntity {
 	private String patientNumber;
 
 	@Column(nullable = false)
-	private LocalDate dateOfBirth;
+	private int height;
+
+	@Column(nullable = false)
+	private int weight;
+
+
+	@ManyToOne(fetch = FetchType.LAZY) // Relacja jednokierunkowa z Patient do Address, ponieważ adres nie musi znać informacji o pacjentach
+	@JoinColumn(name = "ADDRESS_ID")
+	private AddressEntity addressEntity;
+
+	@OneToMany(mappedBy = "patientEntity", cascade = CascadeType.ALL) // Relacja dwukierunkowa, gdzie pacjent zna swoje wizyty, a wizyty mają przypisanego pacjenta.
+	private Collection<VisitEntity> visitEntities;
 
 	public Long getId() {
 		return id;
@@ -82,12 +89,35 @@ public class PatientEntity {
 		this.patientNumber = patientNumber;
 	}
 
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
+	public int getHeight() {
+		return height;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public AddressEntity getAddressEntity() {
+		return addressEntity;
+	}
+
+	public void setAddressEntity(AddressEntity addressEntity) {
+		this.addressEntity = addressEntity;
+	}
+
+	public Collection<VisitEntity> getVisitEntities() {
+		return visitEntities;
+	}
+
+	public void setVisitEntities(Collection<VisitEntity> visitEntities) {
+		this.visitEntities = visitEntities;
+	}
 }
