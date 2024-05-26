@@ -1,6 +1,6 @@
 package com.capgemini.wsb.persistence.entity;
 
-import java.time.LocalDate;
+
 import java.util.Collection;
 
 import javax.persistence.*;
