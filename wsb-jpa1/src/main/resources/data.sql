@@ -31,16 +31,16 @@ insert into medical_treatment (id, description, type) values
 (7, 'USG brzucha', 'USG');
 
 insert into doctor (id, doctor_Number, email, first_Name, last_Name, specialization, telephone_Number, address_id) values
-(1, 'D001', 'jdoe@example.com', 'John', 'Doe', 'Cardiology', '555-1234', 1),
-(2, 'D002', 'asmith@example.com', 'Alice', 'Smith', 'Neurology', '555-2345', 2),
-(3, 'D003', 'bwilliams@example.com', 'Bob', 'Williams', 'Orthopedics', '555-3456', 3),
-(4, 'D004', 'cjones@example.com', 'Carol', 'Jones', 'Dermatology', '555-4567', 4),
-(5, 'D005', 'djohnson@example.com', 'David', 'Johnson', 'Pediatrics', '555-5678', 5),
-(6, 'D006', 'eevans@example.com', 'Emma', 'Evans', 'Radiology', '555-6789', 6),
-(7, 'D007', 'fflores@example.com', 'Frank', 'Flores', 'Ophthalmology', '555-7890', 7),
-(8, 'D008', 'ggarcia@example.com', 'Grace', 'Garcia', 'Psychiatry', '555-8901', 8),
-(9, 'D009', 'hharris@example.com', 'Henry', 'Harris', 'Gastroenterology', '555-9012', 9),
-(10, 'D010', 'ijackson@example.com', 'Isabella', 'Jackson', 'Endocrinology', '555-1122', 10);
+(1, 'D001', 'jdoe@example.com', 'John', 'Doe', 'SURGEON', '555-1234', 1),
+(2, 'D002', 'asmith@example.com', 'Alice', 'Smith', 'SURGEON', '555-2345', 2),
+(3, 'D003', 'bwilliams@example.com', 'Bob', 'Williams', 'OCULIST', '555-3456', 3),
+(4, 'D004', 'cjones@example.com', 'Carol', 'Jones', 'SURGEON', '555-4567', 4),
+(5, 'D005', 'djohnson@example.com', 'David', 'Johnson', 'OCULIST', '555-5678', 5),
+(6, 'D006', 'eevans@example.com', 'Emma', 'Evans', 'DERMATOLOGIST', '555-6789', 6),
+(7, 'D007', 'fflores@example.com', 'Frank', 'Flores', 'DERMATOLOGIST', '555-7890', 7),
+(8, 'D008', 'ggarcia@example.com', 'Grace', 'Garcia', 'OCULIST', '555-8901', 8),
+(9, 'D009', 'hharris@example.com', 'Henry', 'Harris', 'GP', '555-9012', 9),
+(10, 'D010', 'ijackson@example.com', 'Isabella', 'Jackson', 'GP', '555-1122', 10);
 
 
 insert into patient (id, first_Name, last_Name, telephone_Number, email, patient_Number, weight, height, address_id) values

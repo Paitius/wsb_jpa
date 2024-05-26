@@ -1,6 +1,7 @@
 package com.capgemini.wsb.service;
 
 import com.capgemini.wsb.dto.VisitTO;
+import com.capgemini.wsb.persistence.entity.VisitEntity;
 
 import java.util.List;
 

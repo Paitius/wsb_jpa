@@ -38,6 +38,7 @@ public final class PatientMapper {
         patientEntity.setPatientNumber(patientTO.getPatientNumber());
         patientEntity.setWeight(patientTO.getWeight());
         patientEntity.setHeight(patientTO.getHeight());
+        patientEntity.setVisitEntities(patientTO.getVisits().stream().map(VisitMapper::mapToEntity).collect(Collectors.toList()));
         return patientEntity;
     }
 }
