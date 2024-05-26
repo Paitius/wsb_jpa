@@ -25,9 +25,7 @@ public class VisitEntity {
 	private DoctorEntity doctorEntity;
 
 	@ManyToOne
-			(fetch = FetchType.LAZY) // Relacja dwukierunkowa, czyli pacjent wie kiedy ma wizytę, a wizyta zna pacjenta
-	@JoinColumn
-			(name = "PATIENT_ID")
+	@JoinColumn(name = "patient_id")
 	private PatientEntity patientEntity;
 
 	@ManyToMany( // Relacja jednokierynkowa many to many, co daje nam połączenie wielu medicaltreatment do różych wizyt czyli mozemy mieć określone leczenie, które tylko przypisujemy do wizyt
@@ -38,6 +36,9 @@ public class VisitEntity {
 			name = "MEDICALTREATMENTS_TO_VISITS",
 			joinColumns = @JoinColumn(name = "MEDICAL_TREATMENT_ID"), inverseJoinColumns = @JoinColumn(name = "VISIT_ID")
 	)
+
+
+
 	private Collection<VisitEntity> visitEntities;
 
 

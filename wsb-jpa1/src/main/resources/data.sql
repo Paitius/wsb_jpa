@@ -1,5 +1,5 @@
 insert into address (id, address_line1, address_line2, city, postal_code) values
-(1, '123 Main St', 'Apt 4B', 'Springfield', '12345'),
+(1, '123 Main St', 'Apt 4B', 'Springfield', '62-030'),
 (2, '456 Elm St', 'Suite 2', 'Shelbyville', '23456'),
 (3, '789 Oak St', NULL, 'Ogdenville', '34567'),
 (4, '101 Pine St', 'Floor 3', 'North Haverbrook', '45678'),
@@ -86,7 +86,9 @@ insert into visit (id, description, time, doctor_id, patient_id) values
 (17, 'Cardiology follow-up', '2024-05-17 10:00:00', 7, 17),
 (18, 'Neurology consult', '2024-05-18 11:00:00', 8, 18),
 (19, 'Gastroenterology check-up', '2024-05-19 13:00:00', 9, 19),
-(20, 'Endocrinology visit', '2024-05-20 14:00:00', 10, 20);
+(20, 'Endocrinology visit', '2024-05-20 14:00:00', 10, 20),
+(21, 'Physical therapy referral', '2024-05-21 16:00:00', 4, 14),
+(22, 'Endocrinology visit', '2024-05-12 16:00:00', 1, 14);
 
 
 insert into MEDICALTREATMENTS_TO_VISITS (MEDICAL_TREATMENT_ID, VISIT_ID) values
